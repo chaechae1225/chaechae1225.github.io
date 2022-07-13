@@ -1,0 +1,659 @@
+
+      
+        body{
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        header{
+            top: 0px;
+            left: 0px;
+            z-index: 999;
+            width: 100%;
+            padding: 10px 0px;
+            position: fixed;
+        }
+        header.view{
+            background-color: #f7f2e2;
+        }
+        header #logo h1{
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Bad Script', cursive;
+        }
+        header #menu .pc .list{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 5px;
+        }
+        header #menu .pc .list li{
+            padding: 0px 10px;
+        }
+        header #menu .pc .list li a{
+            font-weight: bold;
+        }
+        header #menu .mobile{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        header #menu .mobile .button span{
+            width: 20px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        header #menu .mobile span:nth-child(1){
+            transform: translate(-50%,-50%) translateY(-8px);
+        }
+        header #menu .mobile span:nth-child(3){
+            transform: translate(-50%,-50%) translateY(8px);
+        }
+        
+        header #menu .mobile .menubox{
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            width: 200px;
+            height: 100vh;
+            z-index: 99;
+            background-color:#f9f7f0;
+            transform: translateX(120%);
+            transition: all .5s;
+            opacity: 0;
+        }
+        header #menu.view .mobile .menubox{
+            transform: translateX(0%);
+            opacity: 1;
+        }
+        header #menu .mobile .menubox .close{
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+        header #menu .mobile .menubox .close span{
+            width: 20px;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: black;
+        }
+        header #menu .mobile .menubox .close span:nth-child(1){
+            transform: rotate(45deg);
+        }
+        header #menu .mobile .menubox .close span:nth-child(2){
+            transform: rotate(-45deg);
+        }
+        
+        header #menu .mobile .menubox .list{
+            margin-top: 50px;
+        }
+        header #menu .mobile .menubox .list li{
+            width: 100%;
+            
+        }
+        header #menu .mobile .menubox .list li a{
+            width: 100%;
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px 20px 0px 10px;
+        }
+        header #menu .mobile .menubox .list li a:hover{
+            color: red;
+        }
+
+        main #home .side{
+            position: absolute;
+            writing-mode: vertical-lr;
+            top: 0px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #ffc107;
+            padding: 100px 5px 20px;
+        }
+        
+        .section .wrap > .title{
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            margin: 70px 0px 30px;
+            transform: translateX(-100px);
+            opacity: 0;
+            transition: all 1s .5s;
+        }
+        .section.view .wrap > .title{
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        .section .wrap > .title:after{
+            content: "📌";
+            position: absolute;
+            top: -10px;
+            font-size: 28px;
+            color: #ce3b3a;
+            transform: translateX(30px)translateY(-20px);
+            transition: all 1s .5s;
+            opacity: 0;
+        }
+        .section.view .wrap > .title:after{
+            transform: translateX(0px)translateY(0px);
+            opacity: 1;
+        }
+        .section.view .wrap > .subTitle{
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+        .section.view .wrap > .subTitle span{
+            background: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 3px 3px 3px #c9c9c9;
+            border: 1px solid #efefef;
+        }
+        main #home{
+            height: 100vh;
+            position: relative;
+        }
+        main #home .title{
+            position: absolute;
+            z-index: 2;
+            top: 40%;
+            left: 20%;
+            transform: translateY(-40%);
+        }
+        main #home .title .subject{
+            font-size: 80px;
+            font-weight: bold;
+            transform: translateY(200px);
+            font-family: 'Bad Script', cursive;
+            animation: hi 1.5s ease-in-out 0s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        main #home .img img {
+            width: 35%;
+            animation: img 1.5s ease-in-out 0s;
+            animation-fill-mode: forwards;
+            overflow: hidden;
+            position: absolute;
+            top: 30%;
+            z-index: 1;
+        }
+        main #home .svg{
+            position: absolute;
+            bottom: 200px;
+            left: 0px;
+            transform: rotate(40deg);
+        }
+        main #home .remove img{
+            position: absolute;
+            top: 10%;
+            right: 25%;
+            width: 120px;
+            height: 120px;
+            animation: remove 2s ease-in-out .5s infinite;
+            animation-fill-mode: forwards;
+            display: none;
+        }
+        main #about{
+            background-color: #f9f7f0;
+        }
+        main #about .list{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0px;
+            overflow: hidden;
+        }
+        main #about .list li{
+            text-align: left;
+        }
+        main #about .list li span{
+            font-family: 'Bad Script', cursive;
+            font-size: 48px;
+            font-weight: bold;
+            padding-left: 60px;
+            line-height: 250px;
+        }
+        main #about .list li .lable{
+            font-size: 18px;
+            line-height: 34px;
+        }
+        main #about .list li .lable:before{
+            content: attr(title);  /*속성값*/
+            line-height:18px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        main #about .icon{
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 0px;
+            margin: 40px 0px 100px;
+            padding-right: 200px;
+        }
+        main #about .icon ol:nth-child(6) img{
+           width:45px;
+           height: 45px;
+           margin-top: 5px;
+        }
+        main #about .icon ol img{
+            width: 60px;
+            height: 60px;
+            text-align: right;
+        }
+        main #skill .list2{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0px;
+        }
+        main #skill .list2 ol .subject{
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: block;
+            text-align: left;
+            transform: translateY(200px);
+            opacity: 0;
+            transition: all 1.5s .5s;
+        }
+        main #skill.view .list2 ol .subject{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        
+        main #skill .list2 ol .subject:after{
+            content: "✔";
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            padding-left: 10px;
+        }
+        main #skill .list2 ol .subject2:after{
+            content: "✔";
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            padding-left: 10px;
+        }
+        main #skill .list2 ol .subject2{
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: right;
+            transform: translateY(200px);
+            opacity: 0;
+            transition: all 1.5s 1s
+        }
+        main #skill.view .list2 ol .subject2{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #skill .list2 ol .text{
+            transform: translateY(200px);
+            opacity: 0;
+            transition: all 1.5s .5s;
+        }
+        main #skill.view .list2 ol .text{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #skill .list2 ol .text span{
+            text-align: left;
+            margin: 10px 0px;
+            font-size: 16px; 
+            display: block;
+            
+        }
+        main #skill .list2 ol .text2{
+            transform: translateY(200px);
+            opacity: 0;
+            transition: all 1.5s 1s;
+        }
+        main #skill.view .list2 ol .text2{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #skill .list2 ol .text2 span{
+            text-align: right;
+            margin: 10px 0px;
+            font-size: 16px;
+            display: block;
+        }
+        main #skill .list2 ol .big{
+            font-size: 75px;
+            font-family: 'Londrina Shadow';
+            padding-left: 60px;
+            animation: color 2s ease-in-out 0.5s infinite;
+            animation-fill-mode: forwards;
+        }
+        main #skill .list2 ol .big p{
+            font-size: 75px;
+        }
+        main #skill .graph{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+        main #skill .graph li{
+            position: relative;
+            background-color: #c7c6c4;
+            height: 20px;
+            text-align: right;
+            color: black;
+            font-weight: bold;
+            width: 80%;
+        }
+        main #skill .graph li:before{
+            content: attr(title);
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 2;
+        }
+        main #skill .graph li:after{
+            content: "";
+            position: absolute;
+            font-size: 18px;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 0%;
+            background-color: #403e3e;
+            transition: width 2s;
+        }
+        main #skill.view .graph li[persent="60"]:after{
+            width: 60%;
+        }
+        main #skill.view .graph li[persent="70"]:after{
+            width: 70%;
+        }
+        main #skill.view .graph li[persent="80"]:after{
+            width: 80%;
+        }
+        main #skill.view .graph li[persent="90"]:after{
+            width: 90%;
+        }
+        main #skill.view .graph li[persent="90"]:after{
+            width: 90%;
+        }
+        main #portfolio{
+            background-color: #f9f7f0;
+            min-height: 1400px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        main #portfolio .siteList ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 100px 50px;
+        }
+        main #portfolio .siteList li a{
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px #d9d9d9;
+            overflow: hidden;
+        }
+        main #portfolio .siteList li .title{
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        main #portfolio .siteList li span{
+            background-color: #ffffff;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin: 0px 5px;
+            font-weight: 600;
+            color: #604800;
+            box-shadow: 3px 3px 3px #c9c9c9;
+        }
+        main #portfolio .siteList li img{
+            width: 100%;
+        }
+        main #portfolio .siteList li a:hover{
+            transform: scale(1.1);
+            transition: all .5s;
+        }
+        main #design .subTitle{
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        main #design .subTitle span{
+            /* background-color: #ffc107;
+            padding: 5px 20px;
+            padding-left: 30px;
+            color: #d4a109;
+            font-family: fantasy;
+            text-shadow: 1px 1px 3px black; */
+        }
+        main #design .list1{
+            overflow-x: hidden;
+            position: relative;
+        }
+        main #design .list1 .img{
+            width: 100%;
+        }
+        main #design .list1 img{
+            width: 100%;
+        }
+        main #design .list2{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr  1fr;
+            grid-gap: 50px 20px;
+            padding-bottom: 100px;
+            padding-top: 50px;
+        }
+        main #design .list2 li{
+            width: 100%;
+        }
+        main #design .list2 li:nth-child(1){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s;
+        }
+        main #design.view .list2 li:nth-child(1){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(2){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s .2s;
+        }
+        main #design.view .list2 li:nth-child(2){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(3){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s .4s;
+        }
+        main #design.view .list2 li:nth-child(3){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(4){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s .6s;
+        }
+        main #design.view .list2 li:nth-child(4){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(5){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s .8s;
+        }
+        main #design.view .list2 li:nth-child(5){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(6){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s 1s;
+        }
+        main #design.view .list2 li:nth-child(6){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(7){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s 1.2s;
+        }
+        main #design.view .list2 li:nth-child(7){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        main #design .list2 li:nth-child(8){
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s 1.4s;
+        }
+        main #design.view .list2 li:nth-child(8){
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        
+        main #design .list2 li img{
+            width: 100%;
+        }
+        
+        main #contact{
+            background-color: #f9f7f0;
+            padding-bottom: 100px;
+        }
+        main #contact .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0px;
+        }
+        main #contact .grid ol .subject{
+            font-size: 34px;
+            font-weight: bold;
+            text-align: left;
+            font-family: 'Bad Script', cursive;
+        }
+        main #contact .grid ol .text{
+            text-align: left;
+            margin-top: 60px;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        main #contact .grid ol .big{
+            font-size: 58px;
+            font-family: 'Bad Script', cursive;
+            text-align: left;
+            font-weight: bold;
+        }
+        main #contact .contactbox{
+            display: inline-block;
+        }
+        main #contact .contactbox .email{
+            width: 80%;
+            height: 30px;
+            margin: 10px 0px;
+            color: black;
+        }
+        main #contact .contactbox .tel{
+            width: 80%;
+            height: 30px;
+            margin: 10px 0px;
+            color: black;
+        }
+        main #contact .contactbox .context{
+            width: 80%;
+            height: 300px;
+            margin: 10px 0px;
+            color: black;
+        }
+        main #contact .contactbox .submit{
+            width: 160px;
+            height: 50px;
+            margin: 20px 0px 0px;
+            border: 2px solid black;
+            background-color: white;
+            font-size: 18px;
+        }
+        footer .footer{
+            padding: 100px 0px 50px;
+            background-color: black;
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+        }
+        footer .footer span{
+            font-size: 12px;
+            color: white;
+            display: block;
+            font-weight: 100;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes hi{
+            0%{
+                transform: translateX(-300px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0px);
+                opacity: 1;
+            }
+            
+        }
+         @keyframes img{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+            
+        }
+        @keyframes color{
+            0%{
+                color: black;
+            }
+            50%{
+                color: red;
+            }
+            
+            100%{
+                color: black;
+            }
+            
+        }
+        @keyframes remove{
+            0%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
+            
+            100%{
+                opacity: 0;
+            }
+            
+        }   
